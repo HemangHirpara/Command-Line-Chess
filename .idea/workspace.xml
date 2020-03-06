@@ -2,16 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c40248c-3d8e-4890-a47f-74bfa90c687a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Chess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Bishop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Bishop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Chess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Chess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/ChessPiece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/ChessPiece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/King.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/King.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Knight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Pawn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Queen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Queen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Rook.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Chess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Chess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/ChessPiece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/King.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Knight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Queen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Rook.java" afterDir="false" />
     </list>
@@ -41,6 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="settings.editor.selected.configurable" value="profiler.jvm" />
   </component>
   <component name="RunManager">
@@ -74,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583378735912</updated>
       <workItem from="1583378737809" duration="5551000" />
-      <workItem from="1583430276271" duration="408000" />
+      <workItem from="1583430276271" duration="12337000" />
     </task>
     <task id="LOCAL-00001" summary="Created basic classes">
       <created>1583380314502</created>
@@ -83,7 +93,21 @@
       <option name="project" value="LOCAL" />
       <updated>1583380314502</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updating all classes">
+      <created>1583430962737</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583430962737</updated>
+    </task>
+    <task id="LOCAL-00003" summary="adding compiled files">
+      <created>1583431035428</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583431035428</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,37 +128,43 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created basic classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created basic classes" />
+    <MESSAGE value="updating all classes" />
+    <MESSAGE value="adding compiled files" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding compiled files" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1583383493002">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1583457868137">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1583383493002" />
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1583457868137" />
     <state x="486" y="342" width="467" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583379883623">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="486" y="342" width="467" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1440.900@0.0.1440.900" timestamp="1583379883623" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1583430962392">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1583458291831">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583430962392" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1583430596780">
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583458291831" />
+    <state width="1398" height="204" key="GridCell.Tab.0.bottom" timestamp="1583458291867">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583430596780" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1583430596778">
+    <state width="1398" height="204" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583458291867" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1583434633418" />
+    <state width="1398" height="204" key="GridCell.Tab.0.center" timestamp="1583458291866">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583430596778" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1583430596777">
+    <state width="1398" height="204" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583458291866" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1583434633415" />
+    <state width="1398" height="204" key="GridCell.Tab.0.left" timestamp="1583458291865">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583430596777" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1583430596779">
+    <state width="1398" height="204" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583458291865" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1583434633413" />
+    <state width="1398" height="204" key="GridCell.Tab.0.right" timestamp="1583458291866">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583430596779" />
+    <state width="1398" height="204" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583458291866" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1583434633415" />
     <state x="397" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1583430276243">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -143,6 +173,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1583430884336" />
+    <state x="458" y="220" key="extract.method.dialog" timestamp="1583440357322">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="220" key="extract.method.dialog/0.0.1440.900@0.0.1440.900" timestamp="1583440357322" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1583384904980">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

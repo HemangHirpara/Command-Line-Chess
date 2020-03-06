@@ -30,7 +30,7 @@ public class Cell {
         this.rank = rank;
     }
 
-    //if getPiece is null, that means the cell is blank
+    //if getPiece is null, cell does not have a piece on
     public ChessPiece getPiece() {
         return piece;
     }

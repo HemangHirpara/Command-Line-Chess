@@ -5,7 +5,7 @@ public class Bishop extends ChessPiece {
         super(color);
     }
 
-    public boolean move(int file, int rank){
+    public boolean move(Cell start, Cell end){
         //allow possible Bishop moves
         return false;
     }

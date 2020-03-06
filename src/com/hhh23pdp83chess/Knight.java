@@ -5,7 +5,7 @@ public class Knight extends ChessPiece {
         super(color);
     }
 
-    public boolean move(int file, int rank){
+    public boolean move(Cell start, Cell end){
         //allow possible Knight moves
         return false;
     }

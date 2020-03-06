@@ -6,8 +6,10 @@ public class King extends ChessPiece {
         super(color);
     }
 
-    public boolean move(int file, int rank){
+    public boolean move(Cell start, Cell end){
         //allow possible King moves
+        //K can move 1 position in all direction iff valid position
+        // (x,y) -> (x+1,y)OR(x,y+1)OR(x-1,y)OR(x,y-1)OR(x+1,y+1)OR(x-1,y-1)
         return false;
     }
 

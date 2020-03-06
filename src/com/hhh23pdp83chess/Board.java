@@ -5,9 +5,13 @@ public class Board {
     private Cell[][] board;
 
     //initialize board
-    public Board(Cell[][] board){
-        this.board = board;
+    public Board(){
+        this.board = new Cell[8][8];
         initializeBoard();
+    }
+
+    public Cell[][] getBoard() {
+        return board;
     }
 
     private void initializeBoard(){
@@ -53,11 +57,41 @@ public class Board {
         }
     }
 
+    //make move allows player to move the piece on start cell to the end cell
+    //true if p can move the piece
+    //false if p cannot move the piece
+    public boolean makeMove(Player p, Cell start, Cell end) {
+        //MAKE SURE P IS ABLE TO MOVE PIECE ON START CELL I.E START.GETPIECE.GETCOLOR == 'B'
+        if(start.getPiece().getColor().equals(p.getPlayerID())) {
+            Cell temp = start;
+            //USE THE SPECIFIC PIECES MOVE METHOD TO CHECK/MOVE THE PIECE SINCE ALL PIECES MOVE DIFFERENTLY
+            //call move method of tempPiece = start.getPiece()
+            // move tempPiece to specified file,rank
+            // boolean result = move(end.getFile(),end.getRank(),tempPiece)
+            //return false if move cannot be made (resulting location invalid, move not allowed by piece, outofbounds)
+            ChessPiece tempPiece = start.getPiece();
+            boolean result = tempPiece.move(start, end);
+            board[start.getFile()][start.getRank()].setPiece(null);
+            board[end.getFile()][end.getRank()].setPiece(temp.getPiece());
+            return true;
+        }
+        return false;
+    }
+
+    public ChessPiece getPieceFromBoard(int file, int rank){
+        return board[file][rank].getPiece();
+    }
+
     //how to print the board in terminal
     public void printBoard(){
-        for(int i = 7; i > 0; i--) {
+        for(int i = 7; i >= 0; i--) {
             for(int j = 0; j < 8; j++) {
-                System.out.print(board[i][j] + " ");
+                if ( (i % 2) == (j % 2) && board[i][j].getPiece() == null)
+                    System.out.print("## ");
+                else if((i % 2) != (j % 2) && board[i][j].getPiece() == null)
+                    System.out.print("   ");
+                else
+                    System.out.print(board[i][j].getPiece()+" ");
             }
             System.out.print(i+1);
             System.out.println();

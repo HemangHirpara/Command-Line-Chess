@@ -16,5 +16,5 @@ public abstract class ChessPiece {
         this.color = color;
     }
 
-    public abstract boolean move(int file, int rank);
+    public abstract boolean move(Cell start, Cell end);
 }
