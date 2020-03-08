@@ -6,10 +6,10 @@ public class Queen extends ChessPiece {
     }
 
     //fix method
-    public boolean move(Cell start, Cell end){
+    public boolean validateMove(Cell[][] board, Cell start, Cell end){
         //allow possible Queen moves
         //If Q is at position (x,y), she can move
-        // (x+i,y) OR (x,y+i) OR (x-i,y) OR (x,y-i) OR (x+i,y+i) OR (x-i,y-i)
+        // (x+i,y) OR (x,y+i) OR (x-i,y) OR (x,y-i) OR (x+i,y+i) OR (x-i,y-i) OR (x-i,y+i) OR (x+i,y-i)
         // as long as coordinates result in valid position on board
         // there is no piece blocking the path
         return false;

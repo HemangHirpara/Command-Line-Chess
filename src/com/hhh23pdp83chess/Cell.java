@@ -1,5 +1,7 @@
 package com.hhh23pdp83chess;
 
+import java.util.Objects;
+
 public class Cell {
     private ChessPiece piece;
     private int file;
@@ -37,5 +39,20 @@ public class Cell {
 
     public void setPiece(ChessPiece piece) {
         this.piece = piece;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || !(o instanceof Cell)) return false;
+        Cell cell = (Cell) o;
+        return file == cell.file &&
+                rank == cell.rank &&
+                Objects.equals(piece, cell.piece);
+    }
+
+    @Override
+    public String toString() {
+        return "(" + file + ", " + rank + ", " + piece + ")";
     }
 }

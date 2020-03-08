@@ -55,6 +55,7 @@ public class Board {
                 board[i][j] = new Cell(i, j, null);
             }
         }
+        //board[3][3] = new Cell(3, 3, new Bishop("w"));
     }
 
     //make move allows player to move the piece on start cell to the end cell
@@ -63,17 +64,22 @@ public class Board {
     public boolean makeMove(Player p, Cell start, Cell end) {
         //MAKE SURE P IS ABLE TO MOVE PIECE ON START CELL I.E START.GETPIECE.GETCOLOR == 'B'
         if(start.getPiece().getColor().equals(p.getPlayerID())) {
-            Cell temp = start;
             //USE THE SPECIFIC PIECES MOVE METHOD TO CHECK/MOVE THE PIECE SINCE ALL PIECES MOVE DIFFERENTLY
             //call move method of tempPiece = start.getPiece()
             // move tempPiece to specified file,rank
             // boolean result = move(end.getFile(),end.getRank(),tempPiece)
             //return false if move cannot be made (resulting location invalid, move not allowed by piece, outofbounds)
+
             ChessPiece tempPiece = start.getPiece();
-            boolean result = tempPiece.move(start, end);
-            board[start.getFile()][start.getRank()].setPiece(null);
-            board[end.getFile()][end.getRank()].setPiece(temp.getPiece());
-            return true;
+            if(tempPiece.validateMove(board, start, end)){
+                //set start cell to null since piece will no longer be there
+                board[start.getFile()][start.getRank()].setPiece(null);
+                //set end cell to temp piece, basically move the piece from start cell to end cell
+                board[end.getFile()][end.getRank()].setPiece(tempPiece);
+                //check win conditions
+                return true;
+            }
+            return false;
         }
         return false;
     }
@@ -82,6 +88,9 @@ public class Board {
         return board[file][rank].getPiece();
     }
 
+    public boolean checkWin(){
+        return true;
+    }
     //how to print the board in terminal
     public void printBoard(){
         for(int i = 7; i >= 0; i--) {
