@@ -3,7 +3,7 @@ package com.hhh23pdp83chess;
 //board is made up of Cells which can hold ChessPieces
 public class Board {
     private Cell[][] board;
-
+    private String promotionPiece;
     //initialize board
     public Board(){
         this.board = new Cell[8][8];
@@ -16,14 +16,14 @@ public class Board {
 
     private void initializeBoard(){
         //white pieces
-        board[0][0] = new Cell(0, 0, new Rook("w"));
+        board[0][0] = new Cell(0, 0, new Rook("w", false));
         board[0][1] = new Cell(0, 1, new Knight("w"));
         board[0][2] = new Cell(0, 2, new Bishop("w"));
         board[0][3] = new Cell(0, 3, new Queen("w"));
-        board[0][4] = new Cell(0, 4, new King("w"));
+        board[0][4] = new Cell(0, 4, new King("w", false));
         board[0][5] = new Cell(0, 5, new Bishop("w"));
         board[0][6] = new Cell(0, 6, new Knight("w"));
-        board[0][7] = new Cell(0, 7, new Rook("w"));
+        board[0][7] = new Cell(0, 7, new Rook("w", false));
         board[1][0] = new Cell(1, 0, new Pawn("w"));
         board[1][1] = new Cell(1, 1, new Pawn("w"));
         board[1][2] = new Cell(1, 2, new Pawn("w"));
@@ -33,29 +33,35 @@ public class Board {
         board[1][6] = new Cell(1, 6, new Pawn("w"));
         board[1][7] = new Cell(1, 7, new Pawn("w"));
         //black pieces
-        board[7][0] = new Cell(0, 0, new Rook("b"));
-        board[7][1] = new Cell(0, 1, new Knight("b"));
-        board[7][2] = new Cell(0, 2, new Bishop("b"));
-        board[7][3] = new Cell(0, 3, new Queen("b"));
-        board[7][4] = new Cell(0, 4, new King("b"));
-        board[7][5] = new Cell(0, 5, new Bishop("b"));
-        board[7][6] = new Cell(0, 6, new Knight("b"));
-        board[7][7] = new Cell(0, 7, new Rook("b"));
-        board[6][0] = new Cell(1, 0, new Pawn("b"));
-        board[6][1] = new Cell(1, 1, new Pawn("b"));
-        board[6][2] = new Cell(1, 2, new Pawn("b"));
-        board[6][3] = new Cell(1, 3, new Pawn("b"));
-        board[6][4] = new Cell(1, 4, new Pawn("b"));
-        board[6][5] = new Cell(1, 5, new Pawn("b"));
-        board[6][6] = new Cell(1, 6, new Pawn("b"));
-        board[6][7] = new Cell(1, 7, new Pawn("b"));
+        board[7][0] = new Cell(7, 0, new Rook("b", false));
+        board[7][1] = new Cell(7, 1, new Knight("b"));
+        board[7][2] = new Cell(7, 2, new Bishop("b"));
+        board[7][3] = new Cell(7, 3, new Queen("b"));
+        board[7][4] = new Cell(7, 4, new King("b", false));
+        board[7][5] = new Cell(7, 5, new Bishop("b"));
+        board[7][6] = new Cell(7, 6, new Knight("b"));
+        board[7][7] = new Cell(7, 7, new Rook("b", false));
+        board[6][0] = new Cell(6, 0, new Pawn("b"));
+        board[6][1] = new Cell(6, 1, new Pawn("b"));
+        board[6][2] = new Cell(6, 2, new Pawn("b"));
+        board[6][3] = new Cell(6, 3, new Pawn("b"));
+        board[6][4] = new Cell(6, 4, new Pawn("b"));
+        board[6][5] = new Cell(6, 5, new Pawn("b"));
+        board[6][6] = new Cell(6, 6, new Pawn("b"));
+        board[6][7] = new Cell(6, 7, new Pawn("b"));
         //Rest of board is null
         for (int i = 2; i < 6; i++) {
             for (int j = 0; j < 8; j++) {
                 board[i][j] = new Cell(i, j, null);
             }
         }
-        //board[3][3] = new Cell(3, 3, new Bishop("w"));
+        /*board[3][3] = new Cell(3, 3, new Bishop("w"));
+        board[7][1] = new Cell(0, 1, null);
+        board[7][2] = new Cell(0, 2, null);
+        board[7][3] = new Cell(0, 3, null);
+
+        board[7][5] = new Cell(0, 5, null);
+        board[7][6] = new Cell(0, 6, null);*/
     }
 
     //make move allows player to move the piece on start cell to the end cell
@@ -76,7 +82,7 @@ public class Board {
                 board[start.getFile()][start.getRank()].setPiece(null);
                 //set end cell to temp piece, basically move the piece from start cell to end cell
                 board[end.getFile()][end.getRank()].setPiece(tempPiece);
-                //check win conditions
+                //check win conditions //check if pawn is on opposite rank to promote
                 return true;
             }
             return false;
@@ -84,8 +90,12 @@ public class Board {
         return false;
     }
 
-    public ChessPiece getPieceFromBoard(int file, int rank){
-        return board[file][rank].getPiece();
+    public String getPromotionPiece() {
+        return promotionPiece;
+    }
+
+    public void setPromotionPiece(String promotionPiece) {
+        this.promotionPiece = promotionPiece;
     }
 
     public boolean checkWin(){

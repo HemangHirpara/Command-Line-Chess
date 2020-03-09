@@ -2,7 +2,6 @@ package com.hhh23pdp83chess;
 
 public abstract class ChessPiece {
     private String color;
-    private int file, rank;
     //set the color of the piece
     public ChessPiece(String color) {this.color = color; }
 
@@ -15,4 +14,6 @@ public abstract class ChessPiece {
     }
 
     public abstract boolean validateMove(Cell[][] board, Cell start, Cell end);
+
+    public abstract boolean getHasMoved();
 }

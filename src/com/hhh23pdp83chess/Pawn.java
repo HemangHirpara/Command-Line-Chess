@@ -112,6 +112,10 @@ public class Pawn extends ChessPiece {
         }
     }
 
+    public boolean getHasMoved() {
+        return false;
+    }
+
     @Override
     public String toString(){
         return this.getColor() + "P";

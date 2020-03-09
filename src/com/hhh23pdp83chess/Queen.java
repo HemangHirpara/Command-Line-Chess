@@ -12,6 +12,16 @@ public class Queen extends ChessPiece {
         // (x+i,y) OR (x,y+i) OR (x-i,y) OR (x,y-i) OR (x+i,y+i) OR (x-i,y-i) OR (x-i,y+i) OR (x+i,y-i)
         // as long as coordinates result in valid position on board
         // there is no piece blocking the path
+        ChessPiece bishopTemp = new Bishop(start.getPiece().getColor());
+        ChessPiece rookTemp = new Rook(start.getPiece().getColor(), false);
+        if(bishopTemp.validateMove(board, start ,end))
+            return true;
+        else if(rookTemp.validateMove(board, start ,end))
+            return true;
+        return false;
+    }
+
+    public boolean getHasMoved() {
         return false;
     }
 

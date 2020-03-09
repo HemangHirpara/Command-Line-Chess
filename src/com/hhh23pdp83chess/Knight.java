@@ -9,12 +9,10 @@ public class Knight extends ChessPiece {
         //allow possible Knight moves
         ChessPiece startPiece = start.getPiece();
         ChessPiece endPiece = end.getPiece();
-        //CANNOT ALLOW BACKWARDS MOVE
         if(start.getFile() > 7 || start.getRank() > 7 ||
                 end.getFile() > 7 || end.getRank() > 7 ||
                 start.getFile() < 0 || start.getRank() < 0 ||
                 end.getFile() < 0 || end.getRank() < 0){
-            System.out.println("out of bounds move");
             return false; //out of bounds move
         }
         //all valid positions the knight can move to
@@ -28,11 +26,15 @@ public class Knight extends ChessPiece {
         {
             int x = start.getFile()+offset[0];
             int y = start.getRank()+offset[1];
-            if(x > 7 || y > 7 || x <= 0 || y <= 0)
+            if(x > 7 || y > 7 || x < 0 || y < 0)
                 continue;
-            if(board[x][y].getPiece() == endPiece)
+            if(board[(start.getFile()+offset[0])][(start.getRank()+offset[1])].equals(end))
                 return true;
         }
+        return false;
+    }
+
+    public boolean getHasMoved() {
         return false;
     }
 
