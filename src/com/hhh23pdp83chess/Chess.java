@@ -148,7 +148,7 @@ public class Chess {
             if(tokens[2].equals("draw?"))
                 drawFlag1=true;
             else if(tokens[2].equals("Q") || tokens[2].equals("R") || tokens[2].equals("B") || tokens[2].equals("N"))
-                gameBoard.setPromotionPiece(tokens[3]);
+                gameBoard.setPromotionPiece(tokens[2]);
         }
     }
 }

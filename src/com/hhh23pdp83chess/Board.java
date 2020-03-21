@@ -59,9 +59,9 @@ public class Board {
         board[7][1] = new Cell(0, 1, null);
         board[7][2] = new Cell(0, 2, null);
         board[7][3] = new Cell(0, 3, null);
-
-        board[7][5] = new Cell(0, 5, null);
-        board[7][6] = new Cell(0, 6, null);*/
+*/
+        board[6][5] = new Cell(6, 5, new Pawn("w"));
+        board[6][6] = new Cell(6, 6, new Pawn("w"));
     }
 
     //make move allows player to move the piece on start cell to the end cell
@@ -82,7 +82,25 @@ public class Board {
                 board[start.getFile()][start.getRank()].setPiece(null);
                 //set end cell to temp piece, basically move the piece from start cell to end cell
                 board[end.getFile()][end.getRank()].setPiece(tempPiece);
-                //check win conditions //check if pawn is on opposite rank to promote
+                //check if pawn is on opposite rank to promote
+                if(board[end.getFile()][end.getRank()].getPiece() instanceof Pawn && end.getFile() == 7) {
+                    System.out.println("Change pawn into promotion piece");
+                    if(promotionPiece == null) {
+                        System.out.println("Promotion not specified, promote to queen");
+                        board[end.getFile()][end.getRank()].setPiece(new Queen(start.getPiece().getColor()));
+                    }
+                    else {
+                        System.out.println("Promotion piece is: " + getPromotionPiece());
+                        if(getPromotionPiece().equals("Q"))
+                            board[end.getFile()][end.getRank()].setPiece(new Queen(start.getPiece().getColor()));
+                        if(getPromotionPiece().equals("N"))
+                            board[end.getFile()][end.getRank()].setPiece(new Knight(start.getPiece().getColor()));
+                        if(getPromotionPiece().equals("R"))
+                            board[end.getFile()][end.getRank()].setPiece(new Rook(start.getPiece().getColor(), true));
+                        if(getPromotionPiece().equals("B"))
+                            board[end.getFile()][end.getRank()].setPiece(new Bishop(start.getPiece().getColor()));
+                    }
+                }
                 return true;
             }
             return false;
