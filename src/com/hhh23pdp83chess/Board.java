@@ -1,5 +1,8 @@
 package com.hhh23pdp83chess;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //board is made up of Cells which can hold ChessPieces
 public class Board {
     private Cell[][] board;
@@ -60,8 +63,8 @@ public class Board {
         board[7][2] = new Cell(0, 2, null);
         board[7][3] = new Cell(0, 3, null);
 */
-        board[6][5] = new Cell(6, 5, new Pawn("w"));
-        board[6][6] = new Cell(6, 6, new Pawn("w"));
+        //board[6][5] = new Cell(6, 5, new Pawn("w"));
+        //board[6][6] = new Cell(6, 6, new Pawn("w"));
     }
 
     //make move allows player to move the piece on start cell to the end cell
@@ -77,20 +80,25 @@ public class Board {
             //return false if move cannot be made (resulting location invalid, move not allowed by piece, outofbounds)
 
             ChessPiece tempPiece = start.getPiece();
+            ChessPiece tempEnd = end.getPiece();
+            boolean promSpecified = false;
+            boolean isProm = false;
             if(tempPiece.validateMove(board, start, end)){
                 //set start cell to null since piece will no longer be there
                 board[start.getFile()][start.getRank()].setPiece(null);
                 //set end cell to temp piece, basically move the piece from start cell to end cell
                 board[end.getFile()][end.getRank()].setPiece(tempPiece);
                 //check if pawn is on opposite rank to promote
-                if(board[end.getFile()][end.getRank()].getPiece() instanceof Pawn && end.getFile() == 7) {
+                if(board[end.getFile()][end.getRank()].getPiece() instanceof Pawn && (end.getFile() == 7 || end.getFile() == 0)) {
+                    isProm = true;
                     System.out.println("Change pawn into promotion piece");
                     if(promotionPiece == null) {
-                        System.out.println("Promotion not specified, promote to queen");
+                        //System.out.println("Promotion not specified, promote to queen");
                         board[end.getFile()][end.getRank()].setPiece(new Queen(start.getPiece().getColor()));
                     }
                     else {
-                        System.out.println("Promotion piece is: " + getPromotionPiece());
+                        //System.out.println("Promotion piece is: " + getPromotionPiece());
+                        promSpecified = true;
                         if(getPromotionPiece().equals("Q"))
                             board[end.getFile()][end.getRank()].setPiece(new Queen(start.getPiece().getColor()));
                         if(getPromotionPiece().equals("N"))
@@ -101,6 +109,45 @@ public class Board {
                             board[end.getFile()][end.getRank()].setPiece(new Bishop(start.getPiece().getColor()));
                     }
                 }
+                //check if doing so does not kill king
+                List<Cell> alive = new ArrayList<>();
+                // create a list of alive pieces
+                Cell e = board[0][0];
+                String opp = "b";
+                if(p.getPlayerID().equals("b"))
+                    opp = "b";
+                System.out.println("opposite player: " + opp);
+                for (int i = 0; i < 8; i++)
+                {
+                    for(int j = 0; j < 8; j++)
+                    {
+                        if(board[i][j].getPiece() != null && board[i][j].getPiece().getColor().equals(opp))
+                            alive.add(board[i][j]);
+                        if(board[i][j].getPiece() instanceof King && board[i][j].getPiece().getColor().equals(p.getPlayerID()))
+                            e = board[i][j];
+                    }
+                }
+
+                // check if moving will make the king in check, if so return false;
+                for(Cell piece : alive)
+                {
+                    if(piece.getPiece().validateMove(board, piece, e)){
+                        System.out.println("will kill king");
+                        //set start cell to null since piece will no longer be there
+                        board[start.getFile()][start.getRank()].setPiece(tempPiece);
+                        //set end cell to temp piece, basically move the piece from start cell to end cell
+                        board[end.getFile()][end.getRank()].setPiece(tempEnd);
+                        return  false;
+                    }
+                }
+
+                if(isProm) {
+                    if(promSpecified)
+                        System.out.println("Promotion piece is: " + getPromotionPiece());
+                    else
+                        System.out.println("Promotion not specified, promote to queen");
+                }
+
                 return true;
             }
             return false;
@@ -135,4 +182,5 @@ public class Board {
         }
         System.out.print(" a  b  c  d  e  f  g  h\n");
     }
+
 }
