@@ -3,11 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="1c40248c-3d8e-4890-a47f-74bfa90c687a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Bishop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Bishop.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Chess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Chess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/ChessPiece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/ChessPiece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/King.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/King.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Knight.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Pawn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Queen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Queen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Rook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Chess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Chess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/ChessPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Rook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583378735912</updated>
       <workItem from="1583378737809" duration="5551000" />
-      <workItem from="1583430276271" duration="83216000" />
+      <workItem from="1583430276271" duration="94683000" />
     </task>
     <task id="LOCAL-00001" summary="Created basic classes">
       <created>1583380314502</created>
@@ -117,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583731803109</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updated pawn promotion">
+      <created>1584820779098</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1584820779098</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,41 +161,42 @@
     <MESSAGE value="basic chess flow added" />
     <MESSAGE value="updated validate moves for bishop, rook, knight, pawn" />
     <MESSAGE value="added more input checks and castling, moves for all pieces working" />
-    <option name="LAST_COMMIT_MESSAGE" value="added more input checks and castling, moves for all pieces working" />
+    <MESSAGE value="updated pawn promotion" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated pawn promotion" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="185" key="#com.intellij.ide.util.MemberChooser" timestamp="1583708461353">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1584835425944">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1583457868137" />
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1584835425944" />
     <state x="533" y="185" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1583708461353" />
     <state x="486" y="342" width="467" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583379883623">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="486" y="342" width="467" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1440.900@0.0.1440.900" timestamp="1583379883623" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1583731802854">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1584820778674">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583731802854" />
-    <state width="1398" height="257" key="GridCell.Tab.0.bottom" timestamp="1583794820985">
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1584820778674" />
+    <state width="1398" height="222" key="GridCell.Tab.0.bottom" timestamp="1584841499857">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="257" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583794820985" />
+    <state width="1398" height="222" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1584841499857" />
     <state width="1398" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1583716172439" />
-    <state width="1398" height="257" key="GridCell.Tab.0.center" timestamp="1583794820984">
+    <state width="1398" height="222" key="GridCell.Tab.0.center" timestamp="1584841499854">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="257" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583794820984" />
+    <state width="1398" height="222" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1584841499854" />
     <state width="1398" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1583716172436" />
-    <state width="1398" height="257" key="GridCell.Tab.0.left" timestamp="1583794820983">
+    <state width="1398" height="222" key="GridCell.Tab.0.left" timestamp="1584841499854">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="257" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583794820983" />
+    <state width="1398" height="222" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1584841499854" />
     <state width="1398" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1583716172428" />
-    <state width="1398" height="257" key="GridCell.Tab.0.right" timestamp="1583794820984">
+    <state width="1398" height="222" key="GridCell.Tab.0.right" timestamp="1584841499855">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="257" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583794820984" />
+    <state width="1398" height="222" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1584841499855" />
     <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1583716172437" />
     <state x="208" y="31" key="SettingsEditor" timestamp="1583611906950">
       <screen x="0" y="0" width="1440" height="900" />
@@ -195,10 +214,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1583430884336" />
-    <state x="458" y="220" key="extract.method.dialog" timestamp="1583440357322">
+    <state x="458" y="220" key="extract.method.dialog" timestamp="1584841089716">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="220" key="extract.method.dialog/0.0.1440.900@0.0.1440.900" timestamp="1583440357322" />
+    <state x="458" y="220" key="extract.method.dialog/0.0.1440.900@0.0.1440.900" timestamp="1584841089716" />
     <state x="426" y="73" key="refactoring.ChangeSignatureDialog" timestamp="1583555670691">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
