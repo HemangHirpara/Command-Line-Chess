@@ -115,6 +115,11 @@ public class Bishop extends ChessPiece {
     }
 
     @Override
+    public void setHasMoved(boolean b) {
+
+    }
+
+    @Override
     public String toString(){
         return this.getColor() + "B";
     }

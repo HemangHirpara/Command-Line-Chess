@@ -39,6 +39,11 @@ public class Knight extends ChessPiece {
     }
 
     @Override
+    public void setHasMoved(boolean b) {
+
+    }
+
+    @Override
     public String toString(){
         return this.getColor() + "N";
     }

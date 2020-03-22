@@ -117,6 +117,11 @@ public class King extends ChessPiece {
     }
 
     @Override
+    public void setHasMoved(boolean b) {
+        hasCastleMoved = b;
+    }
+
+    @Override
     public String toString(){
         return this.getColor() + "K";
     }

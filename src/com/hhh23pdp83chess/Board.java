@@ -27,14 +27,14 @@ public class Board {
         board[0][5] = new Cell(0, 5, new Bishop("w"));
         board[0][6] = new Cell(0, 6, new Knight("w"));
         board[0][7] = new Cell(0, 7, new Rook("w", false));
-        board[1][0] = new Cell(1, 0, new Pawn("w"));
-        board[1][1] = new Cell(1, 1, new Pawn("w"));
-        board[1][2] = new Cell(1, 2, new Pawn("w"));
-        board[1][3] = new Cell(1, 3, new Pawn("w"));
-        board[1][4] = new Cell(1, 4, new Pawn("w"));
-        board[1][5] = new Cell(1, 5, new Pawn("w"));
-        board[1][6] = new Cell(1, 6, new Pawn("w"));
-        board[1][7] = new Cell(1, 7, new Pawn("w"));
+        board[1][0] = new Cell(1, 0, new Pawn("w", false));
+        board[1][1] = new Cell(1, 1, new Pawn("w", false));
+        board[1][2] = new Cell(1, 2, new Pawn("w", false));
+        board[1][3] = new Cell(1, 3, new Pawn("w", false));
+        board[1][4] = new Cell(1, 4, new Pawn("w", false));
+        board[1][5] = new Cell(1, 5, new Pawn("w", false));
+        board[1][6] = new Cell(1, 6, new Pawn("w", false));
+        board[1][7] = new Cell(1, 7, new Pawn("w", false));
         //black pieces
         board[7][0] = new Cell(7, 0, new Rook("b", false));
         board[7][1] = new Cell(7, 1, new Knight("b"));
@@ -44,14 +44,14 @@ public class Board {
         board[7][5] = new Cell(7, 5, new Bishop("b"));
         board[7][6] = new Cell(7, 6, new Knight("b"));
         board[7][7] = new Cell(7, 7, new Rook("b", false));
-        board[6][0] = new Cell(6, 0, new Pawn("b"));
-        board[6][1] = new Cell(6, 1, new Pawn("b"));
-        board[6][2] = new Cell(6, 2, new Pawn("b"));
-        board[6][3] = new Cell(6, 3, new Pawn("b"));
-        board[6][4] = new Cell(6, 4, new Pawn("b"));
-        board[6][5] = new Cell(6, 5, new Pawn("b"));
-        board[6][6] = new Cell(6, 6, new Pawn("b"));
-        board[6][7] = new Cell(6, 7, new Pawn("b"));
+        board[6][0] = new Cell(6, 0, new Pawn("b", false));
+        board[6][1] = new Cell(6, 1, new Pawn("b", false));
+        board[6][2] = new Cell(6, 2, new Pawn("b", false));
+        board[6][3] = new Cell(6, 3, new Pawn("b", false));
+        board[6][4] = new Cell(6, 4, new Pawn("b", false));
+        board[6][5] = new Cell(6, 5, new Pawn("b", false));
+        board[6][6] = new Cell(6, 6, new Pawn("b", false));
+        board[6][7] = new Cell(6, 7, new Pawn("b", false));
         //Rest of board is null
         for (int i = 2; i < 6; i++) {
             for (int j = 0; j < 8; j++) {
@@ -115,7 +115,7 @@ public class Board {
                 Cell e = board[0][0];
                 String opp = "b";
                 if(p.getPlayerID().equals("b"))
-                    opp = "b";
+                    opp = "w";
                 System.out.println("opposite player: " + opp);
                 for (int i = 0; i < 8; i++)
                 {
@@ -147,12 +147,28 @@ public class Board {
                     else
                         System.out.println("Promotion not specified, promote to queen");
                 }
+                resetHasMoved(p, "w", "b");
+                resetHasMoved(p, "b", "w");
 
                 return true;
             }
             return false;
         }
         return false;
+    }
+
+    private void resetHasMoved(Player p, String b, String w) {
+        if(p.getPlayerID().equals(b))
+        {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    if(board[i][j].getPiece() instanceof Pawn && board[i][j].getPiece().getColor().equals(w))
+                    {
+                        board[i][j].getPiece().setHasMoved(false);
+                    }
+                }
+            }
+        }
     }
 
     public String getPromotionPiece() {
@@ -166,6 +182,7 @@ public class Board {
     public boolean checkWin(){
         return true;
     }
+
     //how to print the board in terminal
     public void printBoard(){
         for(int i = 7; i >= 0; i--) {

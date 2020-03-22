@@ -16,4 +16,6 @@ public abstract class ChessPiece {
     public abstract boolean validateMove(Cell[][] board, Cell start, Cell end);
 
     public abstract boolean getHasMoved();
+
+    public abstract void setHasMoved(boolean b);
 }

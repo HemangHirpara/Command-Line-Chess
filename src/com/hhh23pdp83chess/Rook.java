@@ -8,6 +8,11 @@ public class Rook extends ChessPiece {
         return hasMoved;
     }
 
+    @Override
+    public void setHasMoved(boolean b) {
+        hasMoved = b;
+    }
+
     public boolean validateMove(Cell[][] board, Cell start, Cell end) {
         //allow possible Rook moves
         ChessPiece startPiece = start.getPiece();
