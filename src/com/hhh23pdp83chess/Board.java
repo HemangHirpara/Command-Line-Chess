@@ -80,7 +80,6 @@ public class Board {
             //return false if move cannot be made (resulting location invalid, move not allowed by piece, outofbounds)
 
             ChessPiece tempPiece = start.getPiece();
-            ChessPiece tempEnd = end.getPiece();
             boolean promSpecified = false;
             boolean isProm = false;
             if(tempPiece.validateMove(board, start, end)){
@@ -92,53 +91,29 @@ public class Board {
                 if(board[end.getFile()][end.getRank()].getPiece() instanceof Pawn && (end.getFile() == 7 || end.getFile() == 0)) {
                     isProm = true;
                     System.out.println("Change pawn into promotion piece");
-                    if(promotionPiece == null) {
+                    if (promotionPiece == null) {
                         //System.out.println("Promotion not specified, promote to queen");
                         board[end.getFile()][end.getRank()].setPiece(new Queen(start.getPiece().getColor()));
-                    }
-                    else {
+                    } else {
                         //System.out.println("Promotion piece is: " + getPromotionPiece());
                         promSpecified = true;
-                        if(getPromotionPiece().equals("Q"))
+                        if (getPromotionPiece().equals("Q"))
                             board[end.getFile()][end.getRank()].setPiece(new Queen(start.getPiece().getColor()));
-                        if(getPromotionPiece().equals("N"))
+                        if (getPromotionPiece().equals("N"))
                             board[end.getFile()][end.getRank()].setPiece(new Knight(start.getPiece().getColor()));
-                        if(getPromotionPiece().equals("R"))
+                        if (getPromotionPiece().equals("R"))
                             board[end.getFile()][end.getRank()].setPiece(new Rook(start.getPiece().getColor(), true));
-                        if(getPromotionPiece().equals("B"))
+                        if (getPromotionPiece().equals("B"))
                             board[end.getFile()][end.getRank()].setPiece(new Bishop(start.getPiece().getColor()));
                     }
                 }
-                //check if doing so does not kill king
-                List<Cell> alive = new ArrayList<>();
-                // create a list of alive pieces
-                Cell e = board[0][0];
-                String opp = "b";
-                if(p.getPlayerID().equals("b"))
-                    opp = "w";
-                System.out.println("opposite player: " + opp);
-                for (int i = 0; i < 8; i++)
-                {
-                    for(int j = 0; j < 8; j++)
-                    {
-                        if(board[i][j].getPiece() != null && board[i][j].getPiece().getColor().equals(opp))
-                            alive.add(board[i][j]);
-                        if(board[i][j].getPiece() instanceof King && board[i][j].getPiece().getColor().equals(p.getPlayerID()))
-                            e = board[i][j];
-                    }
-                }
 
-                // check if moving will make the king in check, if so return false;
-                for(Cell piece : alive)
-                {
-                    if(piece.getPiece().validateMove(board, piece, e)){
-                        System.out.println("will kill king");
-                        //set start cell to null since piece will no longer be there
-                        board[start.getFile()][start.getRank()].setPiece(tempPiece);
-                        //set end cell to temp piece, basically move the piece from start cell to end cell
-                        board[end.getFile()][end.getRank()].setPiece(tempEnd);
-                        return  false;
-                    }
+                if(isCheck(p, start, end)) {
+                    System.out.println("not in check");
+                }
+                else {
+                    System.out.println("in check");
+                    return false;
                 }
 
                 if(isProm) {
@@ -171,6 +146,39 @@ public class Board {
         }
     }
 
+    private boolean isCheck(Player p, Cell start, Cell end)
+    {
+        ChessPiece tempPiece = start.getPiece();
+        ChessPiece tempEnd = end.getPiece();
+        //check if doing so does not kill king
+        List<Cell> alive = new ArrayList<>();
+        // create a list of alive pieces
+        Cell e = board[0][0];
+        String opp = "b";
+        if(p.getPlayerID().equals("b"))
+            opp = "w";
+        for (int i = 0; i < 8; i++) {
+            for(int j = 0; j < 8; j++) {
+                if(board[i][j].getPiece() != null && board[i][j].getPiece().getColor().equals(opp))
+                    alive.add(board[i][j]);
+                if(board[i][j].getPiece() instanceof King && board[i][j].getPiece().getColor().equals(p.getPlayerID()))
+                    e = board[i][j];
+            }
+        }
+
+        // check if moving will make the king in check, if so return false;
+        for(Cell piece : alive) {
+            if(piece.getPiece().validateMove(board, piece, e)) {
+                //set start cell to null since piece will no longer be there
+                board[start.getFile()][start.getRank()].setPiece(tempPiece);
+                //set end cell to temp piece, basically move the piece from start cell to end cell
+                board[end.getFile()][end.getRank()].setPiece(tempEnd);
+                return  false;
+            }
+        }
+        return true;
+    }
+
     public String getPromotionPiece() {
         return promotionPiece;
     }
@@ -178,6 +186,7 @@ public class Board {
     public void setPromotionPiece(String promotionPiece) {
         this.promotionPiece = promotionPiece;
     }
+
 
     public boolean checkWin(){
         return true;

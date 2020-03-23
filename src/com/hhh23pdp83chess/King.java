@@ -24,10 +24,8 @@ public class King extends ChessPiece {
         if(startPiece.getColor().equals("w")) {
             if ((start.getFile() == 0 && start.getRank() == 4) && (end.getFile() == 0 && end.getRank() == 6)) {
                 //king is trying to castle with rook on h1
-                System.out.println("trying to castle: " + hasCastleMoved);
-                if(hasCastleMoved) { System.out.println("King has moved or castled before"); return false; } //if white king has moved or castled before
+                if(hasCastleMoved) { return false; } //if white king has moved or castled before
                 if(board[0][7].getPiece().getHasMoved()) {
-                    System.out.println("Rook has moved, cannot castle");
                     return false; //rook on h1 has moved before
                 }
                 //check if path is clear to castle, if true, move king AND rook
@@ -42,9 +40,8 @@ public class King extends ChessPiece {
             }
             if ((start.getFile() == 0 && start.getRank() == 4) && (end.getFile() == 0 && end.getRank() == 2)) {
                 //king is trying to castle with rook on a1
-                if(hasCastleMoved) { System.out.println("King has moved or castled before"); return false; } //if white king has moved or castled before
+                if(hasCastleMoved) { return false; } //if white king has moved or castled before
                 if(board[0][0].getPiece().getHasMoved()) {
-                    System.out.println("Rook has moved, cannot castle");
                     return false; //rook on h1 has moved before
                 }
                 //check if path is clear to castle, if true, move king AND rook
@@ -61,10 +58,8 @@ public class King extends ChessPiece {
 
         if ((start.getFile() == 7 && start.getRank() == 4) && (end.getFile() == 7 && end.getRank() == 6)) {
             //king is trying to castle with rook on h8
-            System.out.println("trying to castle: " + hasCastleMoved);
-            if(hasCastleMoved) { System.out.println("King has moved or castled before"); return false; } //if white king has moved or castled before
+            if(hasCastleMoved) { return false; } //if white king has moved or castled before
             if(board[7][7].getPiece().getHasMoved()) {
-                System.out.println("Rook has moved, cannot castle");
                 return false; //rook on h1 has moved before
             }
             //check if path is clear to castle, if true, move king AND rook
@@ -79,9 +74,8 @@ public class King extends ChessPiece {
         }
         if ((start.getFile() == 7 && start.getRank() == 4) && (end.getFile() == 7 && end.getRank() == 2)) {
             //king is trying to castle with rook on a8
-            if(hasCastleMoved) { System.out.println("King has moved or castled before"); return false; } //if black king has moved or castled before
+            if(hasCastleMoved) { return false; } //if black king has moved or castled before
             if(board[7][0].getPiece().getHasMoved()) {
-                System.out.println("Rook has moved, cannot castle");
                 return false; //rook on a8 has moved before
             }
             //check if path is clear to castle, if true, move king AND rook
