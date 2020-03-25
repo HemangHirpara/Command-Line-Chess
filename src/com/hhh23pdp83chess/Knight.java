@@ -1,12 +1,21 @@
 package com.hhh23pdp83chess;
 
+/**
+ * Extends ChessPiece class to represent a Knight
+ * @author Hemang Hirpara hhh23
+ * @author Poojan Patel pdp83
+ */
 public class Knight extends ChessPiece {
+    /**
+     * Constructor for King
+     * @param color b or w
+     */
     public Knight(String color) {
         super(color);
     }
 
     /**
-     *
+     * Check if the specificed move is validate for Knight
      * @param board game board
      * @param start start loc
      * @param end end loc
@@ -42,8 +51,8 @@ public class Knight extends ChessPiece {
     }
 
     /**
-     * getter
-     * @return true if the piece has moved
+     * Get moved flag for Knight
+     * @return false, knight move does not need to be tracked
      */
     public boolean getHasMoved() {
         return false;

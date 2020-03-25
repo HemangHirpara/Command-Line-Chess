@@ -1,28 +1,29 @@
 package com.hhh23pdp83chess;
 
+/**
+ * Extends ChessPiece class to represent a King
+ * @author Hemang Hirpara hhh23
+ * @author Poojan Patel pdp83
+ */
 public class King extends ChessPiece {
-
     private boolean hasCastleMoved;
     private boolean isInCheck;
 
     /**
-     * Constructor
+     * Constructor for King
      * @param color b or w
-     * @param hasCastleMoved
+     * @param hasCastleMoved true if king has castled/moved before
      */
     public King(String color, boolean hasCastleMoved) { super(color); this.hasCastleMoved = hasCastleMoved; this.isInCheck = false;}
 
     /**
-     *
+     * Check if the specified move is validate for King
      * @param board game board
      * @param start start loc
      * @param end end loc
      * @return true if the move can be made by a King
      */
     public boolean validateMove(Cell[][] board, Cell start, Cell end){
-        //allow possible King moves
-        //K can move 1 position in all direction iff valid position
-        // (x,y) -> (x+1,y)OR(x,y+1)OR(x-1,y)OR(x,y-1)OR(x+1,y+1)OR(x-1,y-1)
         ChessPiece startPiece = start.getPiece();
         ChessPiece endPiece = end.getPiece();
         if (start.getFile() > 7 || start.getRank() > 7 ||
@@ -122,41 +123,31 @@ public class King extends ChessPiece {
     }
 
     /**
+     * Get move flag for castling
      * @return t if moved, else false
      */
-    public boolean getHasMoved() {
-        return false;
-    }
+    public boolean getHasMoved() { return false; }
 
     /**
-     * for castling
+     * Set move flag for castling
      * @param b true if moved
      */
     @Override
-    public void setHasMoved(boolean b) {
-        hasCastleMoved = b;
-    }
+    public void setHasMoved(boolean b) { hasCastleMoved = b; }
 
     @Override
-    public String toString(){
-        return this.getColor() + "K";
-    }
+    public String toString(){ return this.getColor() + "K"; }
 
     /**
-     *
+     * Get check flag for King
      * @return true if King in check
      */
-    public boolean getIsCheck(){
-        return this.isInCheck;
-    }
+    public boolean getIsCheck(){ return this.isInCheck; }
 
     /**
-     * setter
+     * Set check flag for King
      * @param b true if in check, else false
      */
-    public void setCheck(boolean b)
-    {
-        this.isInCheck = b;
-    }
+    public void setCheck(boolean b) { this.isInCheck = b; }
 }
 

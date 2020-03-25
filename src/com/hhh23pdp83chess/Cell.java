@@ -1,22 +1,18 @@
+package com.hhh23pdp83chess;
+import java.util.Objects;
+
 /**
+ * Class to represent each space of a chess board
  * @author Hemang Hirpara hhh23
  * @author Poojan Patel pdp83
  */
-package com.hhh23pdp83chess;
-
-import java.util.Objects;
-
 public class Cell {
     private ChessPiece piece;
     private int file;
     private int rank;
 
-    //file: a-h -> 0-7 rank: 1-8 -> 0-7
-    // when processing input from user, we can convert the rank into its appropriate index number
-    // for example if user enters e2 e4, we can process it as move piece from cell(4,2) to cell(4,4)
-
     /**
-     * constructor
+     * Constructor for Cell
      * @param file file of cell
      * @param rank rank of cell
      * @param piece piece sitting at the cell
@@ -28,43 +24,56 @@ public class Cell {
     }
 
     /**
-     * getter
+     * Get File from specific Cell
      * @return gets the file of cell
      */
     public int getFile() {
         return file;
     }
 
+    /**
+     * Get File from the specific Cell
+     * @param file file to set for the Cell
+     */
     public void setFile(int file) {
         this.file = file;
     }
 
     /**
-     * getter
+     * Get Rank from specific Cell
      * @return gets the rank of cell
      */
     public int getRank() {
         return rank;
     }
 
+    /**
+     * Set Rank on specific Cell
+     * @param rank rank to set for the Cell
+     */
     public void setRank(int rank) {
         this.rank = rank;
     }
 
-    //if getPiece is null, cell does not have a piece on
-
     /**
-     * getter
-     * @return gets the piece of cell
+     * Get Piece from specific Cell
+     * @return gets the piece on the Cell
      */
     public ChessPiece getPiece() {
         return piece;
     }
 
-    public void setPiece(ChessPiece piece) {
-        this.piece = piece;
-    }
+    /**
+     * Set Piece on specific Cell
+     * @param piece piece to place on the Cell
+     */
+    public void setPiece(ChessPiece piece) { this.piece = piece; }
 
+    /**
+     * Equals method to compare two Cell objects
+     * @param o object to compare Cell with
+     * @return true if objects are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

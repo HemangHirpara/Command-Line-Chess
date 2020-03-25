@@ -1,12 +1,13 @@
-/**
- * @author Hemang Hirpara hhh23
- * @author Poojan Patel pdp83
- */
 package com.hhh23pdp83chess;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-//set up game, chess runs from here
+
+/**
+ * Chess game class to handle user input and game conditions
+ * @author Hemang Hirpara hhh23
+ * @author Poojan Patel pdp83
+ */
 public class Chess {
 
     private static int rank1;
@@ -22,8 +23,8 @@ public class Chess {
     private static boolean resignFlag2 = false;
 
     /**
-     * main method
-     * @param args
+     * Main method, handles player turns and win condition check
+     * @param args program arguments
      */
     public static void main(String[] args){
         gameBoard = new Board();
@@ -34,7 +35,6 @@ public class Chess {
         //1: white 2: black
         Player p1 = new Player("w");
         Player p2 = new Player("b");
-
 
         while(true)
         {
@@ -84,8 +84,6 @@ public class Chess {
             }
             if((drawFlag1 && drawFlag2) || resignFlag)
                 break;
-
-
         }
         if(drawFlag1)
             System.out.println("Both Players Draw");
@@ -96,16 +94,14 @@ public class Chess {
     }
 
     /**
-     *
+     * Process the specified input onto the game board
      * @param p player; b or w
      * @param gb the gameboard itself
      * @return true if the move was valid, false otherwise
      */
     private static boolean processMove(Player p, Cell[][] gb) {
         Cell start = new Cell(file1, rank1, gb[file1][rank1].getPiece());
-        //System.out.println("File: " + file1 + " Rank: " + rank1);
         Cell end = new Cell(file2, rank2, gb[file2][rank2].getPiece());
-        //System.out.println("File: " + file2 + " Rank: " + rank2);
 
         //if(drawFlag1) { return true; }
         if(drawFlag2) { return  true; }
@@ -129,7 +125,7 @@ public class Chess {
     }
 
     /**
-     * maps file to a corresponding intefe
+     * Maps file to a corresponding integer
      * @param cFile file character
      * @return int version
      */
@@ -166,6 +162,9 @@ public class Chess {
         return file;
     }
 
+    /**
+     * Parse user input to execute moves and set flags
+     */
     private static void parseInput(){
         //take token[] and assign it to proper values
         if (tokens.length == 1)
@@ -195,10 +194,10 @@ public class Chess {
         }
     }
 
-    /*
-    @Player p black or white
-    determines if there's a checkmate
-    by creating list of valid moves and simulating them
+    /**
+     * Check to see if player P is in checkmate
+     * @param p player : b or w
+     * @return true if p is in checkmate false otherwise
      */
     private static boolean checkWin(Player p){
         // find king and check if he's in check
@@ -216,8 +215,7 @@ public class Chess {
         String pColor = p.getPlayerID();
         // get list of all the pieces of the current player on the board
         List<Cell> piecesLeft = new ArrayList<>();
-        for(int i = 0; i < 8; i++)
-        {
+        for(int i = 0; i < 8; i++) {
             for(int j = 0; j < 8; j++){
                 if(gameBoard.getBoard()[i][j].getPiece() != null && gameBoard.getBoard()[i][j].getPiece().getColor().equals(pColor))
                     piecesLeft.add(gameBoard.getBoard()[i][j]);
@@ -249,9 +247,6 @@ public class Chess {
                 }
             }
         }
-
         return true;
     }
-
-
 }

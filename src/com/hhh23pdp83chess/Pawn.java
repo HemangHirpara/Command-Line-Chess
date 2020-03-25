@@ -1,25 +1,28 @@
+package com.hhh23pdp83chess;
+
 /**
+ * Extends ChessPiece class to represent a Pawn
  * @author Hemang Hirpara hhh23
  * @author Poojan Patel pdp83
  */
-package com.hhh23pdp83chess;
 public class Pawn extends ChessPiece {
     private boolean hasMoved2Spots;
+
+    /**
+     * Constructor for Pawn
+     * @param color b or w
+     * @param hasMoved2Spots true if Pawn has moved before
+     */
     public Pawn(String color, boolean hasMoved2Spots) {super(color); this.hasMoved2Spots = hasMoved2Spots;}
 
     /**
-     *
+     * Check if the specified move is validate for Pawn
      * @param board game board
      * @param start start loc
      * @param end end loc
      * @return true if the move can be made by a pawn
      */
     public boolean validateMove(Cell[][] board, Cell start, Cell end){
-        //allow possible Pawn moves
-        //pawn can move 2 on first move or 1 on all other moves
-        //pawn can capture one move forward diagonally
-        //if pawn move is its first move allow 2 move ahead else 1
-        //return false if move cannot be made if (resulting location invalid, move not allowed by piece, outofbounds)
         ChessPiece startPiece = start.getPiece();
         ChessPiece endPiece = end.getPiece();
         //CANNOT ALLOW BACKWARDS MOVE
@@ -29,7 +32,6 @@ public class Pawn extends ChessPiece {
                 end.getFile() < 0 || end.getRank() < 0){
             return false; //out of bounds move
         }
-
         //white enpassant check, if you are moving white piece diagonally left or right into an empty spot, you are trying to en passant
         if(endPiece == null && startPiece.getColor().equals("w") && (((start.getRank()+1) == end.getRank() && start.getFile()+1 == end.getFile()) || ((start.getRank()-1) == end.getRank() && start.getFile()+1 == end.getFile()))) {
             //if pawn on left and right of white piece is a black pawn AND then black piece has moved 2 spots
@@ -73,11 +75,8 @@ public class Pawn extends ChessPiece {
             if(start.getFile() == 1) {//if white pawn is on initial rank, it can move 2 spaces
                 //allow diagonal moves if end piece is black
                 if(endPiece != null && endPiece.getColor().equals("b")) {
-                    if(((start.getRank()+1) == end.getRank() && start.getFile()+1 == end.getFile()) ||
-                            (start.getRank()-1) == end.getRank() && start.getFile()+1 == end.getFile()) {
-                        return true;
-                    }
-                    return false;
+                    return ((start.getRank() + 1) == end.getRank() && start.getFile() + 1 == end.getFile()) ||
+                            (start.getRank() - 1) == end.getRank() && start.getFile() + 1 == end.getFile();
                 }
                 else if(endPiece != null && endPiece.getColor().equals("w")) return false;
 
@@ -98,18 +97,14 @@ public class Pawn extends ChessPiece {
             else {
                 //allow diagonal moves if end piece is black
                 if(endPiece != null && endPiece.getColor().equals("b")) {
-                    if(((start.getRank()+1) == end.getRank() && start.getFile()+1 == end.getFile()) ||
-                            (start.getRank()-1) == end.getRank() && start.getFile()+1 == end.getFile()) {
-                        return true;
-                    }
-                    return false;
+                    return ((start.getRank() + 1) == end.getRank() && start.getFile() + 1 == end.getFile()) ||
+                            (start.getRank() - 1) == end.getRank() && start.getFile() + 1 == end.getFile();
                 }
                 else if(endPiece != null && endPiece.getColor().equals("w")) return false;
 
                 //allow 1 position move from another rank
-                if(end.getRank()-start.getRank() == 0 && (end.getFile() - start.getFile()) == 1) return true;
+                return end.getRank() - start.getRank() == 0 && (end.getFile() - start.getFile()) == 1;
             }
-            return false;
         }
         //regular black pawn check
         else
@@ -118,11 +113,8 @@ public class Pawn extends ChessPiece {
             {
                 //allow diagonal moves if end piece is white
                 if (endPiece != null && endPiece.getColor().equals("w")) {
-                    if ((start.getRank() - 1) == end.getRank() && start.getFile() - 1 == end.getFile()||
-                            (start.getRank()+1) == end.getRank() && start.getFile()-1 == end.getFile()) {
-                        return true;
-                    }
-                    return false;
+                    return (start.getRank() - 1) == end.getRank() && start.getFile() - 1 == end.getFile() ||
+                            (start.getRank() + 1) == end.getRank() && start.getFile() - 1 == end.getFile();
                 }
                 else if(endPiece != null && endPiece.getColor().equals("b")) return false;
 
@@ -143,18 +135,14 @@ public class Pawn extends ChessPiece {
             else {
                 //allow diagonal moves if end piece is white
                 if (endPiece != null && endPiece.getColor().equals("w")) {
-                    if ((start.getRank() - 1) == end.getRank() && start.getFile() - 1 == end.getFile()||
-                            (start.getRank()+1) == end.getRank() && start.getFile()-1 == end.getFile()) {
-                        return true;
-                    }
-                    return false;
+                    return (start.getRank() - 1) == end.getRank() && start.getFile() - 1 == end.getFile() ||
+                            (start.getRank() + 1) == end.getRank() && start.getFile() - 1 == end.getFile();
                 }
                 else if(endPiece != null && endPiece.getColor().equals("b")) return false;
 
                 //allow 1 position move from another rank
-                if ((end.getRank()-start.getRank()) == 0 && (start.getFile() - end.getFile()) == 1) return true;
+                return (end.getRank() - start.getRank()) == 0 && (start.getFile() - end.getFile()) == 1;
             }
-            return false;
         }
     }
 

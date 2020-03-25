@@ -1,5 +1,10 @@
 package com.hhh23pdp83chess;
 
+/**
+ * Abstract class to represent Chess Pieces
+ * @author Hemang Hirpara hhh23
+ * @author Poojan Patel pdp83
+ */
 public abstract class ChessPiece {
     private String color;
     //set the color of the piece

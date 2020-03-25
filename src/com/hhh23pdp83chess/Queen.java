@@ -1,39 +1,39 @@
+package com.hhh23pdp83chess;
+
 /**
+ * Extends ChessPiece class to represent a Queen
  * @author Hemang Hirpara hhh23
  * @author Poojan Patel pdp83
- */package com.hhh23pdp83chess;
-
+ */
 public class Queen extends ChessPiece {
     /**
-     *
-     * @param color sets the color: b or w
+     * Constructor for Queen
+     * @param color b or w
      */
     public Queen(String color) {
         super(color);
     }
 
     /**
-     *
+     * Check if the specified move is validate for Queen
      * @param board game board
      * @param start start loc
      * @param end end loc
-     * @return true if the move can be made by a queen
+     * @return true if the move can be made by a Queen
      */
     public boolean validateMove(Cell[][] board, Cell start, Cell end){
-        //allow possible Queen moves
-        //If Q is at position (x,y), she can move
-        // (x+i,y) OR (x,y+i) OR (x-i,y) OR (x,y-i) OR (x+i,y+i) OR (x-i,y-i) OR (x-i,y+i) OR (x+i,y-i)
-        // as long as coordinates result in valid position on board
-        // there is no piece blocking the path
+        //A queens movements is essentially the combination of bishop and rook movements
         ChessPiece bishopTemp = new Bishop(start.getPiece().getColor());
         ChessPiece rookTemp = new Rook(start.getPiece().getColor(), false);
         if(bishopTemp.validateMove(board, start ,end))
             return true;
-        else if(rookTemp.validateMove(board, start ,end))
-            return true;
-        return false;
+        else return rookTemp.validateMove(board, start, end);
     }
 
+    /**
+     * Get move flagged to see if Queen has moved
+     * @return false, queen move does not need to be tracked
+     */
     public boolean getHasMoved() {
         return false;
     }

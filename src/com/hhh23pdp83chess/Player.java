@@ -1,22 +1,23 @@
+package com.hhh23pdp83chess;
+
 /**
+ * Represent a chess player
  * @author Hemang Hirpara hhh23
  * @author Poojan Patel pdp83
- */package com.hhh23pdp83chess;
-
+ */
 public class Player {
-    // b or w
     private String playerID;
 
     /**
-     * constructor
-     * @param playerID b or w
+     * Constructor for Player
+     * @param playerID b or w, defines which side
      */
     public Player(String playerID) {
         this.playerID = playerID;
     }
 
     /**
-     * getter
+     * Get player's ID
      * @return gets player color: b or w
      */
     public String getPlayerID() {
