@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="1c40248c-3d8e-4890-a47f-74bfa90c687a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Bishop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Bishop.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Chess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Chess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/King.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/King.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess15/com/hhh23pdp83chess/Pawn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Chess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Chess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hhh23pdp83chess/Pawn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584844332060</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="cleaned up code, put &quot;check&quot; into its own method">
+      <created>1584922892664</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1584922892664</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +176,8 @@
     <MESSAGE value="updated validate moves for bishop, rook, knight, pawn" />
     <MESSAGE value="added more input checks and castling, moves for all pieces working" />
     <MESSAGE value="update: en passant complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: en passant complete" />
+    <MESSAGE value="cleaned up code, put &quot;check&quot; into its own method" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned up code, put &quot;check&quot; into its own method" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584842280329">
@@ -178,35 +193,35 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="486" y="342" width="467" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1440.900@0.0.1440.900" timestamp="1583379883623" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1584844331644">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1584922892484">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1584844331644" />
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1584922892484" />
     <state x="354" y="61" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1584835960241" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1584922389162">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1398" height="332" key="GridCell.Tab.0.bottom" timestamp="1585156836170">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="415" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1584919010642" />
+    <state width="1398" height="332" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585156836170" />
     <state width="1638" height="731" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1584835960279" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1584922389162" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1584922389161">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1398" height="241" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1585152684817" />
+    <state width="1398" height="332" key="GridCell.Tab.0.center" timestamp="1585156836169">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="415" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1584919010639" />
+    <state width="1398" height="332" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1585156836169" />
     <state width="1638" height="731" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1584835960278" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1584922389161" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1584922389160">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1398" height="241" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1585152684816" />
+    <state width="1398" height="332" key="GridCell.Tab.0.left" timestamp="1585156836168">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="415" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1584919010638" />
+    <state width="1398" height="332" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1585156836168" />
     <state width="1638" height="731" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1584835960278" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1584922389160" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1584922389162">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1398" height="241" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1585152684815" />
+    <state width="1398" height="332" key="GridCell.Tab.0.right" timestamp="1585156836169">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="415" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1584919010641" />
+    <state width="1398" height="332" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585156836169" />
     <state width="1638" height="731" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1584835960278" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1584922389162" />
+    <state width="1398" height="241" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1585152684816" />
     <state x="208" y="31" key="SettingsEditor" timestamp="1584844969943">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

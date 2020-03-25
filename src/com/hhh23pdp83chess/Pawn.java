@@ -30,7 +30,7 @@ public class Pawn extends ChessPiece {
                 }
                 return false;
             }
-            if(board[start.getFile()][start.getRank()+1].getPiece() instanceof Pawn && board[start.getFile()][start.getRank()+1].getPiece().getColor().equals("b")) {
+            if(start.getRank() < 7 && board[start.getFile()][start.getRank()+1].getPiece() instanceof Pawn && board[start.getFile()][start.getRank()+1].getPiece().getColor().equals("b")) {
                 if(board[start.getFile()][start.getRank() + 1].getPiece().getHasMoved()) {
                     board[start.getFile()][start.getRank()+1].setPiece(null);
                     return true;
@@ -48,7 +48,7 @@ public class Pawn extends ChessPiece {
                 }
                 return false;
             }
-            if(board[start.getFile()][start.getRank()+1].getPiece() instanceof Pawn && board[start.getFile()][start.getRank()+1].getPiece().getColor().equals("w")) {
+            if(start.getRank() < 7 && board[start.getFile()][start.getRank()+1].getPiece() instanceof Pawn && board[start.getFile()][start.getRank()+1].getPiece().getColor().equals("w")) {
                 if(board[start.getFile()][start.getRank() + 1].getPiece().getHasMoved()) {
                     board[start.getFile()][start.getRank()+1].setPiece(null);
                     return true;

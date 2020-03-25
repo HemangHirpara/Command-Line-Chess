@@ -87,9 +87,9 @@ public class Bishop extends ChessPiece {
                 return true;
             }
             if(fileDirection < 0 && rankDirection < 0) { // -i -i
-                System.out.println("Moving negative down diagonal");
+                //System.out.println("Moving negative down diagonal");
                 while ((start.getRank() - offset) != end.getRank()) {
-                    System.out.println("start rank: " + start.getRank() + " offset: " + offset + " end rank: " + end.getRank());
+                    //System.out.println("start rank: " + start.getRank() + " offset: " + offset + " end rank: " + end.getRank());
                     if(board[(start.getFile()-offset)][(start.getRank()-offset)].getPiece() == null){
                         if(board[(start.getFile()-offset)][(start.getRank()-offset)].equals(end))
                             return true;

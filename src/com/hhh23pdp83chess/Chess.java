@@ -1,4 +1,6 @@
 package com.hhh23pdp83chess;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 //set up game, chess runs from here
 public class Chess {
@@ -27,12 +29,20 @@ public class Chess {
 
         while(gameBoard.checkWin())
         {
+            if(checkWin(p1)){
+                System.out.println("Checkmate. Black wins");
+                System.exit(0);
+            }
             sc = new Scanner(System.in);
             System.out.print("White's Move: ");
             tokens = sc.nextLine().trim().split(" ");
             parseInput();
             while(!processMove(p1, gb))
             {
+                if(checkWin(p1)){
+                    System.out.println("Checkmate. Black wins");
+                    System.exit(0);
+                }
                 System.out.println("Illegal move, try again");
                 System.out.print("White's Move: ");
                 tokens = sc.nextLine().trim().split(" ");
@@ -40,13 +50,20 @@ public class Chess {
             }
             if((drawFlag1 && drawFlag2) || resignFlag)
                 break;
-
+            if(checkWin(p2)){
+                System.out.println("Checkmate. White wins");
+                System.exit(0);
+            }
             System.out.print("Black's Move: ");
             tokens = sc.nextLine().trim().split(" ");
             parseInput();
 
             while(!processMove(p2, gb))
             {
+                if(checkWin(p2)){
+                    System.out.println("Checkmate. White wins");
+                    System.exit(0);
+                }
                 System.out.println("Illegal move, try again");
                 System.out.print("Black's Move: ");
                 tokens = sc.nextLine().trim().split(" ");
@@ -54,6 +71,8 @@ public class Chess {
             }
             if((drawFlag1 && drawFlag2) || resignFlag)
                 break;
+
+
         }
         if(drawFlag1)
             System.out.println("Both Players Draw");
@@ -69,7 +88,7 @@ public class Chess {
         Cell end = new Cell(file2, rank2, gb[file2][rank2].getPiece());
         //System.out.println("File: " + file2 + " Rank: " + rank2);
 
-        if(drawFlag1) { return true; }
+        //if(drawFlag1) { return true; }
         if(drawFlag2) { return  true; }
 
         if(resignFlag)
@@ -150,6 +169,64 @@ public class Chess {
             else if(tokens[2].equals("Q") || tokens[2].equals("R") || tokens[2].equals("B") || tokens[2].equals("N"))
                 gameBoard.setPromotionPiece(tokens[2]);
         }
+    }
+
+    /*
+    @Player p black or white
+    determines if there's a checkmate
+    by creating list of valid moves and simulating them
+     */
+    private static boolean checkWin(Player p){
+        // find king and check if he's in check
+        King king = null;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if(gameBoard.getBoard()[i][j].getPiece() instanceof King && gameBoard.getBoard()[i][j].getPiece().getColor().equals(p.getPlayerID()))
+                    king = (King)gameBoard.getBoard()[i][j].getPiece();
+            }
+        }
+        // if king not in check, return false
+        if(king != null && !king.getIsCheck())
+            return false;
+
+        String pColor = p.getPlayerID();
+        // get list of all the pieces of the current player on the board
+        List<Cell> piecesLeft = new ArrayList<>();
+        for(int i = 0; i < 8; i++)
+        {
+            for(int j = 0; j < 8; j++){
+                if(gameBoard.getBoard()[i][j].getPiece() != null && gameBoard.getBoard()[i][j].getPiece().getColor().equals(pColor))
+                    piecesLeft.add(gameBoard.getBoard()[i][j]);
+            }
+        }
+
+        /*
+        1. now go through all pieces and their moves and simulate moves
+        2. if a valid move is found, quit and return false, and remove the flag from the king
+         */
+        boolean moveOutput;
+        for(Cell c : piecesLeft)
+        {
+            for(int i = 0; i < 8; i++){
+                for (int j = 0; j < 8; j++){
+                    Cell s, e;
+                    s = c;
+                    e = gameBoard.getBoard()[i][j];
+                    ChessPiece tempPiece = s.getPiece();
+                    ChessPiece tempEnd = e.getPiece();
+                    moveOutput = gameBoard.makeMove(p, s, e);
+                    // make the move and undo it, but these two lines causing issues
+                    // run with them and without
+                    gameBoard.getBoard()[s.getFile()][s.getRank()].setPiece(tempPiece);
+                    gameBoard.getBoard()[e.getFile()][e.getRank()].setPiece(tempEnd);
+                    // if the moveOutput is true, there is a possible move, ret false else
+                    if(moveOutput)
+                        return false;
+                }
+            }
+        }
+
+        return true;
     }
 
 

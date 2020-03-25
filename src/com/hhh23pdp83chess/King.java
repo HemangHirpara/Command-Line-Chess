@@ -3,7 +3,8 @@ package com.hhh23pdp83chess;
 public class King extends ChessPiece {
 
     private boolean hasCastleMoved;
-    public King(String color, boolean hasCastleMoved) { super(color); this.hasCastleMoved = hasCastleMoved;}
+    private boolean isInCheck;
+    public King(String color, boolean hasCastleMoved) { super(color); this.hasCastleMoved = hasCastleMoved; this.isInCheck = false;}
     public boolean validateMove(Cell[][] board, Cell start, Cell end){
         //allow possible King moves
         //K can move 1 position in all direction iff valid position
@@ -118,6 +119,15 @@ public class King extends ChessPiece {
     @Override
     public String toString(){
         return this.getColor() + "K";
+    }
+
+    public boolean getIsCheck(){
+        return this.isInCheck;
+    }
+
+    public void setCheck(boolean b)
+    {
+        this.isInCheck = b;
     }
 }
 

@@ -63,14 +63,16 @@ public class Board {
         board[7][2] = new Cell(0, 2, null);
         board[7][3] = new Cell(0, 3, null);
 */
-        //board[6][5] = new Cell(6, 5, new Pawn("w"));
-        //board[6][6] = new Cell(6, 6, new Pawn("w"));
+        //board[4][4] = new Cell(4, 4, new Pawn("w", true));
+        //board[4][6] = new Cell(4, 6, new Pawn("w", true));
     }
 
     //make move allows player to move the piece on start cell to the end cell
     //true if p can move the piece
     //false if p cannot move the piece
     public boolean makeMove(Player p, Cell start, Cell end) {
+        if(start.getPiece() == null)
+            return false;
         //MAKE SURE P IS ABLE TO MOVE PIECE ON START CELL I.E START.GETPIECE.GETCOLOR == 'B'
         if(start.getPiece().getColor().equals(p.getPlayerID())) {
             //USE THE SPECIFIC PIECES MOVE METHOD TO CHECK/MOVE THE PIECE SINCE ALL PIECES MOVE DIFFERENTLY
@@ -108,10 +110,20 @@ public class Board {
                     }
                 }
 
+                King king = null;
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
+                        if(board[i][j].getPiece() instanceof King && board[i][j].getPiece().getColor().equals(p.getPlayerID()))
+                            king = (King)board[i][j].getPiece();
+                    }
+                }
+
                 if(isCheck(p, start, end)) {
+                    king.setCheck(false);
                     System.out.println("not in check");
                 }
                 else {
+                    king.setCheck(true);
                     System.out.println("in check");
                     return false;
                 }
@@ -124,6 +136,32 @@ public class Board {
                 }
                 resetHasMoved(p, "w", "b");
                 resetHasMoved(p, "b", "w");
+                //check if this current move made, puts the other player in check
+                Player p2 = new Player((p.getPlayerID().equals("b")) ? "w" : "b");
+                List<Cell> temp = new ArrayList<>();
+                King king2 = null;
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
+                        if(board[i][j].getPiece() instanceof King && board[i][j].getPiece().getColor().equals(p2.getPlayerID()))
+                            king2 = (King)board[i][j].getPiece();
+                    }
+                }
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
+                        if (board[i][j].getPiece() != null && board[i][j].getPiece().getColor().equals(p2.getPlayerID()))
+                            temp.add(board[i][j]);
+                    }
+                }
+                if(isCheck(p2, temp.get(0), temp.get(1)))
+                {
+                    king2.setCheck(false);
+                    System.out.println(p2.getPlayerID()+ " is not in check");
+                }
+                else
+                {
+                    king2.setCheck(true);
+                    System.out.println(p2.getPlayerID()+ " is in check");
+                }
 
                 return true;
             }
@@ -189,6 +227,7 @@ public class Board {
 
 
     public boolean checkWin(){
+
         return true;
     }
 
