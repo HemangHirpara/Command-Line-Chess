@@ -1,22 +1,33 @@
+/**
+ * @author Hemang Hirpara hhh23
+ * @author Poojan Patel pdp83
+ */
 package com.hhh23pdp83chess;
-
 import java.util.ArrayList;
 import java.util.List;
 
 //board is made up of Cells which can hold ChessPieces
 public class Board {
+
     private Cell[][] board;
-    private String promotionPiece;
+    private String promotionPiece; // the piece a pawn becomes
     //initialize board
     public Board(){
         this.board = new Cell[8][8];
         initializeBoard();
     }
 
+    /**
+     * a getter
+     * @return returns the 2d array board
+     */
     public Cell[][] getBoard() {
         return board;
     }
 
+    /**
+     * initializes the original location of all the chesspieces by populating the 2d array of Cells
+     */
     private void initializeBoard(){
         //white pieces
         board[0][0] = new Cell(0, 0, new Rook("w", false));
@@ -67,9 +78,13 @@ public class Board {
         //board[4][6] = new Cell(4, 6, new Pawn("w", true));
     }
 
-    //make move allows player to move the piece on start cell to the end cell
-    //true if p can move the piece
-    //false if p cannot move the piece
+    /**
+     *
+     * @param p player b or w
+     * @param start start piece
+     * @param end end piece
+     * @return true if the move is valid and is successfully made, else false
+     */
     public boolean makeMove(Player p, Cell start, Cell end) {
         if(start.getPiece() == null)
             return false;
@@ -92,7 +107,7 @@ public class Board {
                 //check if pawn is on opposite rank to promote
                 if(board[end.getFile()][end.getRank()].getPiece() instanceof Pawn && (end.getFile() == 7 || end.getFile() == 0)) {
                     isProm = true;
-                    System.out.println("Change pawn into promotion piece");
+                    //System.out.println("Change pawn into promotion piece");
                     if (promotionPiece == null) {
                         //System.out.println("Promotion not specified, promote to queen");
                         board[end.getFile()][end.getRank()].setPiece(new Queen(start.getPiece().getColor()));
@@ -120,20 +135,22 @@ public class Board {
 
                 if(isCheck(p, start, end)) {
                     king.setCheck(false);
-                    System.out.println("not in check");
+                    //System.out.println("not in check");
                 }
                 else {
                     king.setCheck(true);
-                    System.out.println("in check");
+                    //System.out.println("in check");
                     return false;
                 }
-
+                /*
                 if(isProm) {
                     if(promSpecified)
                         System.out.println("Promotion piece is: " + getPromotionPiece());
                     else
                         System.out.println("Promotion not specified, promote to queen");
                 }
+
+                 */
                 resetHasMoved(p, "w", "b");
                 resetHasMoved(p, "b", "w");
                 //check if this current move made, puts the other player in check
@@ -155,12 +172,12 @@ public class Board {
                 if(isCheck(p2, temp.get(0), temp.get(1)))
                 {
                     king2.setCheck(false);
-                    System.out.println(p2.getPlayerID()+ " is not in check");
+                    //System.out.println(p2.getPlayerID()+ " is not in check");
                 }
                 else
                 {
                     king2.setCheck(true);
-                    System.out.println(p2.getPlayerID()+ " is in check");
+                    //System.out.println(p2.getPlayerID()+ " is in check");
                 }
 
                 return true;
@@ -170,6 +187,12 @@ public class Board {
         return false;
     }
 
+    /**
+     *
+     * @param p
+     * @param b
+     * @param w
+     */
     private void resetHasMoved(Player p, String b, String w) {
         if(p.getPlayerID().equals(b))
         {
@@ -184,6 +207,13 @@ public class Board {
         }
     }
 
+    /**
+     * checks if the current player is in check
+     * @param p player who just played
+     * @param start start piece of the move
+     * @param end end location
+     * @return true, if player in check
+     */
     private boolean isCheck(Player p, Cell start, Cell end)
     {
         ChessPiece tempPiece = start.getPiece();
@@ -217,21 +247,25 @@ public class Board {
         return true;
     }
 
+    /**
+     * getter
+     * @return gets the promotion piece
+     */
     public String getPromotionPiece() {
         return promotionPiece;
     }
 
+    /**
+     * setter
+     * @param promotionPiece promotion piece
+     */
     public void setPromotionPiece(String promotionPiece) {
         this.promotionPiece = promotionPiece;
     }
 
-
-    public boolean checkWin(){
-
-        return true;
-    }
-
-    //how to print the board in terminal
+    /**
+     * prints the gameboard
+     */
     public void printBoard(){
         for(int i = 7; i >= 0; i--) {
             for(int j = 0; j < 8; j++) {

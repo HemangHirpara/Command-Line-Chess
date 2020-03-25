@@ -2,6 +2,12 @@ package com.hhh23pdp83chess;
 
 public class Rook extends ChessPiece {
     private boolean hasMoved;
+
+    /**
+     * constuctor
+     * @param color b or w
+     * @param hasMoved t or f
+     */
     public Rook(String color, boolean hasMoved) {super(color); this.hasMoved = hasMoved;}
 
     public boolean getHasMoved() {
@@ -13,6 +19,13 @@ public class Rook extends ChessPiece {
         hasMoved = b;
     }
 
+    /**
+     *
+     * @param board game board
+     * @param start start loc
+     * @param end end loc
+     * @return true if the move can be made by a rook
+     */
     public boolean validateMove(Cell[][] board, Cell start, Cell end) {
         //allow possible Rook moves
         ChessPiece startPiece = start.getPiece();

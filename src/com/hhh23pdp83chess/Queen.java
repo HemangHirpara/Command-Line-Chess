@@ -1,11 +1,24 @@
-package com.hhh23pdp83chess;
+/**
+ * @author Hemang Hirpara hhh23
+ * @author Poojan Patel pdp83
+ */package com.hhh23pdp83chess;
 
 public class Queen extends ChessPiece {
+    /**
+     *
+     * @param color sets the color: b or w
+     */
     public Queen(String color) {
         super(color);
     }
 
-    //fix method
+    /**
+     *
+     * @param board game board
+     * @param start start loc
+     * @param end end loc
+     * @return true if the move can be made by a queen
+     */
     public boolean validateMove(Cell[][] board, Cell start, Cell end){
         //allow possible Queen moves
         //If Q is at position (x,y), she can move

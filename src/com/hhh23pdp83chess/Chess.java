@@ -1,3 +1,7 @@
+/**
+ * @author Hemang Hirpara hhh23
+ * @author Poojan Patel pdp83
+ */
 package com.hhh23pdp83chess;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +13,18 @@ public class Chess {
     private static int file1;
     private static int rank2;
     private static int file2;
-    private static Board gameBoard;
-    private static String[] tokens;
-    private static boolean drawFlag1 = false;
-    private static boolean drawFlag2 = false;
+    private static Board gameBoard; // main chessboard
+    private static String[] tokens; // user input
+    private static boolean drawFlag1 = false; // for p1
+    private static boolean drawFlag2 = false; // for p2
     private static boolean resignFlag = false;
     private static boolean resignFlag1 = false;
     private static boolean resignFlag2 = false;
 
+    /**
+     * main method
+     * @param args
+     */
     public static void main(String[] args){
         gameBoard = new Board();
         gameBoard.printBoard();
@@ -27,7 +35,8 @@ public class Chess {
         Player p1 = new Player("w");
         Player p2 = new Player("b");
 
-        while(gameBoard.checkWin())
+
+        while(true)
         {
             if(checkWin(p1)){
                 System.out.println("Checkmate. Black wins");
@@ -39,6 +48,7 @@ public class Chess {
             parseInput();
             while(!processMove(p1, gb))
             {
+                // if a checkmate occurs, game over
                 if(checkWin(p1)){
                     System.out.println("Checkmate. Black wins");
                     System.exit(0);
@@ -48,8 +58,10 @@ public class Chess {
                 tokens = sc.nextLine().trim().split(" ");
                 parseInput();
             }
+            // if either player request a draw or resign
             if((drawFlag1 && drawFlag2) || resignFlag)
                 break;
+
             if(checkWin(p2)){
                 System.out.println("Checkmate. White wins");
                 System.exit(0);
@@ -60,6 +72,7 @@ public class Chess {
 
             while(!processMove(p2, gb))
             {
+                // if a checkmate occurs, game over
                 if(checkWin(p2)){
                     System.out.println("Checkmate. White wins");
                     System.exit(0);
@@ -82,6 +95,12 @@ public class Chess {
             System.out.println("White wins");
     }
 
+    /**
+     *
+     * @param p player; b or w
+     * @param gb the gameboard itself
+     * @return true if the move was valid, false otherwise
+     */
     private static boolean processMove(Player p, Cell[][] gb) {
         Cell start = new Cell(file1, rank1, gb[file1][rank1].getPiece());
         //System.out.println("File: " + file1 + " Rank: " + rank1);
@@ -109,6 +128,11 @@ public class Chess {
             return false;
     }
 
+    /**
+     * maps file to a corresponding intefe
+     * @param cFile file character
+     * @return int version
+     */
     private static int parseFile(char cFile) {
         int file;
         switch(cFile) {

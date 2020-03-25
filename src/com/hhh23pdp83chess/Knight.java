@@ -5,6 +5,13 @@ public class Knight extends ChessPiece {
         super(color);
     }
 
+    /**
+     *
+     * @param board game board
+     * @param start start loc
+     * @param end end loc
+     * @return true if the move can be made by a Knight
+     */
     public boolean validateMove(Cell[][] board, Cell start, Cell end){
         //allow possible Knight moves
         ChessPiece startPiece = start.getPiece();
@@ -34,6 +41,10 @@ public class Knight extends ChessPiece {
         return false;
     }
 
+    /**
+     * getter
+     * @return true if the piece has moved
+     */
     public boolean getHasMoved() {
         return false;
     }

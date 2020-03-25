@@ -4,7 +4,21 @@ public class King extends ChessPiece {
 
     private boolean hasCastleMoved;
     private boolean isInCheck;
+
+    /**
+     * Constructor
+     * @param color b or w
+     * @param hasCastleMoved
+     */
     public King(String color, boolean hasCastleMoved) { super(color); this.hasCastleMoved = hasCastleMoved; this.isInCheck = false;}
+
+    /**
+     *
+     * @param board game board
+     * @param start start loc
+     * @param end end loc
+     * @return true if the move can be made by a King
+     */
     public boolean validateMove(Cell[][] board, Cell start, Cell end){
         //allow possible King moves
         //K can move 1 position in all direction iff valid position
@@ -107,10 +121,17 @@ public class King extends ChessPiece {
         return false;
     }
 
+    /**
+     * @return t if moved, else false
+     */
     public boolean getHasMoved() {
         return false;
     }
 
+    /**
+     * for castling
+     * @param b true if moved
+     */
     @Override
     public void setHasMoved(boolean b) {
         hasCastleMoved = b;
@@ -121,10 +142,18 @@ public class King extends ChessPiece {
         return this.getColor() + "K";
     }
 
+    /**
+     *
+     * @return true if King in check
+     */
     public boolean getIsCheck(){
         return this.isInCheck;
     }
 
+    /**
+     * setter
+     * @param b true if in check, else false
+     */
     public void setCheck(boolean b)
     {
         this.isInCheck = b;

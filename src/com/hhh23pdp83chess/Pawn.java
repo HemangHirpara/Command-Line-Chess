@@ -1,9 +1,19 @@
+/**
+ * @author Hemang Hirpara hhh23
+ * @author Poojan Patel pdp83
+ */
 package com.hhh23pdp83chess;
-
 public class Pawn extends ChessPiece {
     private boolean hasMoved2Spots;
     public Pawn(String color, boolean hasMoved2Spots) {super(color); this.hasMoved2Spots = hasMoved2Spots;}
 
+    /**
+     *
+     * @param board game board
+     * @param start start loc
+     * @param end end loc
+     * @return true if the move can be made by a pawn
+     */
     public boolean validateMove(Cell[][] board, Cell start, Cell end){
         //allow possible Pawn moves
         //pawn can move 2 on first move or 1 on all other moves

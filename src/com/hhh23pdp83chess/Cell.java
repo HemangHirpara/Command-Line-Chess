@@ -1,3 +1,7 @@
+/**
+ * @author Hemang Hirpara hhh23
+ * @author Poojan Patel pdp83
+ */
 package com.hhh23pdp83chess;
 
 import java.util.Objects;
@@ -10,12 +14,23 @@ public class Cell {
     //file: a-h -> 0-7 rank: 1-8 -> 0-7
     // when processing input from user, we can convert the rank into its appropriate index number
     // for example if user enters e2 e4, we can process it as move piece from cell(4,2) to cell(4,4)
+
+    /**
+     * constructor
+     * @param file file of cell
+     * @param rank rank of cell
+     * @param piece piece sitting at the cell
+     */
     public Cell(int file, int rank, ChessPiece piece){
         this.setPiece(piece);
         this.setFile(file);
         this.setRank(rank);
     }
 
+    /**
+     * getter
+     * @return gets the file of cell
+     */
     public int getFile() {
         return file;
     }
@@ -24,6 +39,10 @@ public class Cell {
         this.file = file;
     }
 
+    /**
+     * getter
+     * @return gets the rank of cell
+     */
     public int getRank() {
         return rank;
     }
@@ -33,6 +52,11 @@ public class Cell {
     }
 
     //if getPiece is null, cell does not have a piece on
+
+    /**
+     * getter
+     * @return gets the piece of cell
+     */
     public ChessPiece getPiece() {
         return piece;
     }
