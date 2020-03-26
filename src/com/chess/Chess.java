@@ -1,4 +1,4 @@
-package com.hhh23pdp83chess;
+package com.chess;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -39,7 +39,7 @@ public class Chess {
         while(true)
         {
             if(checkWin(p1)){
-                System.out.println("Checkmate. Black wins");
+                System.out.println("Checkmate\nBlack wins");
                 System.exit(0);
             }
             sc = new Scanner(System.in);
@@ -50,7 +50,7 @@ public class Chess {
             {
                 // if a checkmate occurs, game over
                 if(checkWin(p1)){
-                    System.out.println("Checkmate. Black wins");
+                    System.out.println("Checkmate\nBlack wins");
                     System.exit(0);
                 }
                 System.out.println("Illegal move, try again");
@@ -63,7 +63,7 @@ public class Chess {
                 break;
 
             if(checkWin(p2)){
-                System.out.println("Checkmate. White wins");
+                System.out.println("Checkmate\nWhite wins");
                 System.exit(0);
             }
             System.out.print("Black's Move: ");
@@ -74,7 +74,7 @@ public class Chess {
             {
                 // if a checkmate occurs, game over
                 if(checkWin(p2)){
-                    System.out.println("Checkmate. White wins");
+                    System.out.println("Checkmate\nWhite wins");
                     System.exit(0);
                 }
                 System.out.println("Illegal move, try again");
@@ -242,8 +242,11 @@ public class Chess {
                     gameBoard.getBoard()[s.getFile()][s.getRank()].setPiece(tempPiece);
                     gameBoard.getBoard()[e.getFile()][e.getRank()].setPiece(tempEnd);
                     // if the moveOutput is true, there is a possible move, ret false else
-                    if(moveOutput)
+                    if(moveOutput){
+                        //System.out.println("Check.");
                         return false;
+                    }
+
                 }
             }
         }

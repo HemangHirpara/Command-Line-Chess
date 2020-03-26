@@ -1,4 +1,4 @@
-package com.hhh23pdp83chess;
+package com.chess;
 
 /**
  * Abstract class to represent Chess Pieces

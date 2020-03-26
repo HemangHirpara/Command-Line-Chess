@@ -1,4 +1,4 @@
-package com.hhh23pdp83chess;
+package com.chess;
 import java.util.Objects;
 
 /**

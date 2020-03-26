@@ -1,4 +1,4 @@
-package com.hhh23pdp83chess;
+package com.chess;
 
 /**
  * Extends ChessPiece class to represent a Rook

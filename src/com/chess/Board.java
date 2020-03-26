@@ -1,4 +1,4 @@
-package com.hhh23pdp83chess;
+package com.chess;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,7 +122,10 @@ public class Board {
                 }
 
                 if(isCheck(p2, temp.get(0), temp.get(1))) { king2.setCheck(false); }
-                else { king2.setCheck(true); }
+                else {
+                        System.out.println("Check.");
+                        king2.setCheck(true);
+                }
 
                 return true;
             }
